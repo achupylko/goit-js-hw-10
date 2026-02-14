@@ -108,11 +108,9 @@ function initTimer() {
 
 function notifyError() {
   iziToast.show({
-    message: 'Please choose a date in the future',
+    message: '❌ Please choose a date in the future',
     messageColor: '#FFFFFF',
     backgroundColor: '#ef4040',
-    iconColor: '#FFFFFF',
-    iconUrl: '../img/icon-error.svg',
     position: 'topRight',
     timeout: 3000,
     closeOnClick: true,
