@@ -36,6 +36,7 @@ let intervalId = null;
 flatpickr(datetimePicker, pickerOptions);
 initTimer();
 
+startBtn.disabled = true;
 startBtn.addEventListener('click', startTimer);
 
 function startTimer() {
@@ -44,7 +45,7 @@ function startTimer() {
   }
 
   isActive = true;
-  startBtn.disabled = true;
+
   datetimePicker.disabled = true;
   let deltaTime = userSelectedDate - Date.now();
   updateTimerface(convertMs(deltaTime));
