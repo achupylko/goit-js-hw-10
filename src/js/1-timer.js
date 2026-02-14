@@ -12,22 +12,6 @@ const timerface = {
   seconds: document.querySelector('span[data-seconds]'),
 };
 
-// const toast = document.querySelector('.iziToast');
-const toastOptions = {
-  title: '',
-  message: 'Please choose a date in the future',
-  backgroundColor: '#ef4040',
-  messageColor: '#FFFFFF',
-
-  iconUrl: '/img/ico-error.svg',
-  iconColor: null,
-  position: 'topRight',
-  timeout: 5000,
-  close: false,
-  progressBar: true,
-  class: 'custom-toast',
-};
-
 const datetimePicker = document.querySelector('#datetime-picker');
 const pickerOptions = {
   enableTime: true,
@@ -36,8 +20,7 @@ const pickerOptions = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates[0] <= Date.now()) {
-      iziToast.show(toastOptions);
-
+      notifyError();
       startBtn.disabled = true;
       return;
     }
@@ -120,4 +103,24 @@ function initTimer() {
   timerface.hours.textContent = '00';
   timerface.minutes.textContent = '00';
   timerface.seconds.textContent = '00';
+}
+
+function notifyError() {
+  iziToast.show({
+    message: 'Please choose a date in the future',
+    messageColor: '#FFFFFF',
+    backgroundColor: '#ef4040',
+    iconColor: '#FFFFFF',
+    iconUrl: '../img/icon-error.svg',
+    position: 'topRight',
+    timeout: 3000,
+    closeOnClick: true,
+    drag: false,
+    pauseOnHover: false,
+    close: false,
+    progressBar: false,
+    animateInside: false,
+    transitionIn: 'fadeIn',
+    transitionOut: 'fadeOut',
+  });
 }
