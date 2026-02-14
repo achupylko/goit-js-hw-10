@@ -45,7 +45,7 @@ function startTimer() {
   }
 
   isActive = true;
-
+  startBtn.disabled = true;
   datetimePicker.disabled = true;
   let deltaTime = userSelectedDate - Date.now();
   updateTimerface(convertMs(deltaTime));
@@ -108,7 +108,7 @@ function initTimer() {
 
 function notifyError() {
   iziToast.show({
-    message: '❌ Please choose a date in the future',
+    message: 'Please choose a date in the future',
     messageColor: '#FFFFFF',
     backgroundColor: '#ef4040',
     position: 'topRight',
